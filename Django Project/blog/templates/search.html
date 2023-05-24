@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% block title %}Search Content{% endblock %}
+
+{% block content%}
+<br><br><br>
+<div class="container" style="margin-left:400px;" >
+    <div class="row">
+        <div class="col s12 m8 " style="margin-top:10px;">
+            {% for a in  POST %}
+            <div class="row">
+             <hr class="solid" style="border-top: 3px solid #477091">
+              <div class="col s12 m8">
+                <div style="">{{a.title}}</div>
+                 {% comment %} <div style="">{{a.title}}</div> {% endcomment %}
+                  {{a.content |truncatewords:60 |safe}}
+                  <div class="mt20">
+                    <a href="/blog/{{a.url}}" class="btn bg-primary"> Read..More..</a>
+                  </div> 
+                 </div>
+                 <div class="col s12 m4">
+                    <img src="/media/{{a.image}}" class="responsive-img" style="margin-top:50px;" alt="/"/>
+                 </div>
+             </div> 
+             {% empty %}
+              <h1>No Data Found</h1>
+              {% endfor %}
+         </div>
+     </div>
+</div>
+{% comment %} <ul class="pagination">
+<li class="disabled"><a href="#!"><i class="material-icons">Pages</i></a></li>
+{% if PostData.has_previous %}
+<li class="bg-primary"><a href="?page=1">First</a></li>
+<li class="bg-primary"><a href="/?page={{PostData.previous_page_number}}">Previous</a></li>
+{% endif%}
+{%for n in totalpagelist %}
+<li class="bg-primary"><a href="/?page={{n}}">{{n}}</a></li>
+{% endfor %}
+{% if PostData.has_next %}
+<li class="bg-primary"><a href="/?page={{PostData.next_page_number}}">Next</a></li>
+<li class="bg-primary"><a href="/?page={{lastpage}}">last</a></li>
+{% endif %}
+</ul> {% endcomment %}
+<br><br><br><br><br>
+{%endblock%}

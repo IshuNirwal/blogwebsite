@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome to Simply Design{%endblock%}
+
+{% block content%}
+
+<div class="col-12"   style="margin-left:20px;">
+    {% comment %} <form method="get" action="/search" >
+        <br> <br><br>
+        Search  <input type="box" name="postname" id="postname" value="" style="width:500px;" placeholder="Type here.."/><br><br>
+        <input class="btn bg-primary" type="submit" value="Search"/>
+    </form> {% endcomment %}
+    <div class="search"style=" border: 1px solid #c4c4c4;
+    height:50px;
+    width: 300px;
+    {% comment %} display: flex; {% endcomment %}
+    border-radius: 25px;
+    font-size: 18px;margin-top:25px;
+    {% comment %} position: relative; {% endcomment %}
+    {% comment %} left:30%;" {% endcomment %}">
+        <form method="get" action="/search">
+        <input style="
+        border: none;
+        padding: 8px 20px;
+        outline: none;
+        font-size: 18px;" type="text" name="postname" id="postname"  placeholder="Search here...">
+        <div class="button-src" >
+            <button style=" padding: 10px 35px 10px 35px;
+            border-radius: 25px;
+            height:50px;
+            border: none;
+            {% comment %} margin: 9px 7px; {% endcomment %}
+            background-color: #477091;
+            color: #ffffff;
+            font-size: 18px;">search</button>
+        </div>
+    </form>
+     </div>
+</div><br><br><br><br>
+    <div class="owl-carousel">
+    {% for cat in CategoryData %}
+    <div class="card item" style="margin-left: 10px; width: fit-content;">
+        <div class="img-container new-img"style="max-width:540px">
+            <img src="/media/{{cat.image}}" class="responsive-image" alt="" > 
+        </div>
+        <div class="card-content">
+            <div class="card-title">
+                <h6>{{cat.title}}</h6>
+            </div>
+            <p class="">{{cat.description |truncatewords:20 |safe}}</p><br>
+            <div class="">
+                <a href="/category/{{cat.url}}" class="btn bg-primary">VIEW</a>
+            </div>
+        </div>
+    </div>
+    {%endfor%}
+    </div>
+</div>
+
+{% comment %} <div class="comtainer">
+    <div class="row">
+        <div class="col s12">
+            {% for a in  PostData %}
+            {{a.content |truncatewords:60 |safe}}
+            {% endfor %}
+
+        </div>
+    </div>
+</div> {% endcomment %}
+
+
+
+<div class=" home-feed">
+               <div class="row">
+                   <div class="col s12 m8 " style="margin-top:10px;">
+                       {% for a in  PostData %}
+                       <div class="row" style="width: 1150px;">
+                        <hr class="solid" style="border-top: 3px solid #477091">
+                         <div class="col s12 m8">
+                            <h4 style="">{{a.title}}</h4> <br>
+                             {{a.content |truncatewords:60 |safe }}
+                             <div class="mt20">
+                               <a href="/blog/{{a.url}}" class="btn bg-primary"> Read..More..</a>
+                             </div> 
+                            </div>
+                            <div class="col s12 m4">
+                               <img src="/media/{{a.image}}" class="responsive-img" style="margin-top:50px;" alt="/"/>
+                            </div>
+                        </div> 
+                         {% endfor %}
+                    </div>
+                </div>
+</div>
+<ul class="pagination">
+    {% comment %} <li class="disabled"><a href="#!"><i class="material-icons">Pages</i></a></li> {% endcomment %}
+    {% if PostData.has_previous %}
+    <li class="bg-primary"><a href="/home/?page=1">First</a></li>
+    <li class="bg-primary"><a href="/home/?page={{PostData.previous_page_number}}">Previous</a></li>
+    {% endif%}
+    {%for n in totalpagelist %}
+    <li class="bg-primary"><a href="/home/?page={{n}}">{{n}}</a></li>
+    {% endfor %}
+    {% if PostData.has_next %}
+    <li class="bg-primary"><a href="/home/?page={{PostData.next_page_number}}">Next</a></li>
+    <li class="bg-primary"><a href="/home/?page={{lastpage}}">last</a></li>
+    {% endif %}
+  </ul>
+{%endblock%}

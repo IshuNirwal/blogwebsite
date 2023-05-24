@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome to Simply Design{%endblock%}
+
+{% block content%}
+
+
+{%load static %}
+<link rel="stylesheet" href="{% static 'CSS\about.css'%}" />
+
+
+<html>
+  {% comment %} <head>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    
+    <script src="https://kit.fontawesome.com/8fe048c345.js" crossorigin="anonymous"></script>
+    <title>Homepage With CSS GRID</title>
+  </head> {% endcomment %}
+  <body>
+    {% comment %} <header class="header main-grid">
+      <div class="header-content">
+        <p class="logo">CSS GRID</p>
+        <button aria-label="Open navigation" class="open-nav">&#9776;</button>
+        <nav class="navigation">
+          <button aria-label="Close navigation" class="close-nav">&times;</button>
+          <ul class="nav-list">
+            <li class="nav-item"><a href="index.html" class="nav-link">home</a></li>
+            <li class="nav-item"><a href="index.html" class="nav-link current">about us</a></li>
+            <li class="nav-item"><a href="index.html" class="nav-link">contact</a></li>
+          </ul>
+        </nav>
+      </div
+      <nav></nav>
+    </header> {% endcomment %}
+    <main class="main-grid">
+            <div class="head">
+            <h1 class="page-title">About us</h1>
+            <p class="subtitle">We are specialsts in web development. Creativity and fun are our ingredients for awesome work.</p>
+            </div>
+            <img class="main-image" src="https://images.unsplash.com/photo-1523908511403-7fc7b25592f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=600&q=60" alt="two men in a coworking space">
+            
+            <div class="main-text">
+                <h2 class="section-title">We're really great guys</h2>
+                <p>Coding is a passion, and our team is the best you can get to thrive in your project. Our strengths are HTML, CSS, Javascript, Python & Django. If you want to learn more, please have a look at our Portfolio. </p>
+                <p>We have learned everything from scratch and spend sleepless nights to learn all the fundamentals es well as the advanced stuff to create projects. We love to work in a co-working space and that´s why you will not find us a "normal" office.</p>
+              
+                <h2 class="section-title sub">We can do all sorts of great stuff </h2>
+                <p>Honestly, we would like to support you with your project. We will get results together and at the end of the day, what else matters?</p>
+                <p>So sure, maybe we're a bit different from what you'd expect, but if you want to get a professional Web presence we're the guy´s for you.</p>
+            </div>
+      
+    </main>
+    
+    
+  </body>
+</html>
+
+
+{%endblock%}

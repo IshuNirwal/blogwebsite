@@ -1,0 +1,120 @@
+{% extends 'base.html' %} {% block title %}POST{% endblock %}
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% block content%}
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<!DOCTYPE html>
+<html>
+<head>
+<title> Create Mobile Payment Page Design </title>
+<link rel= "stylesheet" href="style.css">
+</head>    
+<body style="font-family : sans-serif;">
+<div class= "app-container" style="height: 860px;
+width: 550px; margin-top:150px;
+background-image: linear-gradient(#580e8f,#9200ff);
+top: 45%;
+left: 50%;
+transform: translate(-50%,-50%);
+position: absolute;">
+    <div class="top-box"style="height: 150px;
+    background-color: #9100fb;
+    border-bottom-left-radius: 80px;
+    border-bottom-right-radius: 80px; text-align: center;
+    padding-top: 20px;
+    color: #fff;">  
+    <p><span class="left-icon"style="float: left;
+        margin-left: 30px;">&#x2196;</span>CHECKOUT<span class="right-icon"style="float: right;
+        margin-right: 30px;">&#xb7;&#xb7;&#xb7;</span></p>
+    </div>
+    
+    <div class="middle-box"style=" height: 150px;
+    background-image: linear-gradient(#580e8f,#9200ff);
+     margin: -70px 30px 20px;
+    text-align: center;
+    font-size: 12px;
+    border-radius: 10px;
+    color: #fff;padding-top: 30px;
+    padding-bottom: 30px;
+    font-size: 50px;
+    font-weight: normal;">
+        <h1 style="font-size: 20px;
+        margin-left: 5px;
+        bottom: 18px;
+        position : relative;">1599<span>$</span></h1>
+        <p style="font-size: 20px;
+        margin-left: 5px;
+        bottom: 18px;
+        position : relative;">Pay To Virtual Employee Company Ltd</p>
+    </div>
+    
+    <div class="bottom-box">
+    <button type="button" class= "payment-option-btn"style="color: #fff;
+    margin: 5px 30px;
+    height: 30px;
+    width: 290px;
+    background-color: #9100fd;
+    border: none;
+    cursor: pointer;
+    margin-left:150px">Pay with Paypal</button>
+    <button type="button" class= "payment-option-btn"style="color: #fff;
+    margin: 5px 30px;
+    height: 30px;
+    width: 290px;
+    background-color: #9100fd;
+    border: none;
+    cursor: pointer;margin-left:150px">Pay with Netbanking</button>
+    </div>
+    
+    <div class="card-details"style=" background: #fff;
+    color: #555;
+    margin: 10px 30px;
+    padding: 10px;">
+    <p style=" font-size: 14px;">Pay using credit or debit card</p>
+    <div class="card-num-field-group">
+    <form method="post" >
+    {% csrf_token %}
+    <label style="font-size: 10px;
+    line-height: 20px;">Card Number</label><br>
+    <input style="border: 1px solid #ccc;
+    height: 22px;
+    padding: 5px;
+    font-size: 10px;"type="text" name="cardnum"class="card-num-field" style="margin-top: 10px; " placeholder="xxxx-xxxx-xxxx-xxxx" style="color: #ccc;">
+    </div>
+    
+    <div class="date-field-group"style="margin-top: 10px;
+    display: inline-block;">
+    <label>Expiry Date</label><br>
+    <input type="text" class="date-field"name="date1" style=" width: 70px;" placeholder="mm">
+    <input type="text" class="date-field"name="date2" placeholder="yyyy">
+    </div>
+    
+    <div class="cvc-field-group" style="margin-top: 10px;
+    display: inline-block;float:right;">
+    <label>CVC</label><br>
+    <input type="password" name="cvc" class="cvc-field" placeholder="xxx">
+    </div>
+        
+    <div class="name-field-group"style="margin-top: 10px;">
+    <label>Card Holder Name</label><br>
+    <input type="text" name="fullname"class="name-field"style= "width: 260px;" placeholder="Full Name">
+    </div>
+</form>
+    
+    <button  style=" width: 270px;
+    color: #fff;
+    margin-top: 20px;
+    height: 30px;
+    background-color: #9100fd;
+    border: none;
+    cursor: pointer; margin-left:120px;"type="button" class="pay-btn">Pay Now</button>
+    
+    </div>
+    
+</div>
+</body>
+</html>
+
+{%endblock%}
